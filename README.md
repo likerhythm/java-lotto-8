@@ -1,3 +1,35 @@
+## **기능 목록**
+- 입력기
+    - 기능1: 로또 구입 금액을 입력 받는다
+        - 예외1: 금액이 0이하의 수인 경우 IllegalArgumentException을 발생시킨다
+        - 예외2: 금액이 소수인 경우 IllegalArgumentException을 발생시킨다
+        - 예외3: 금액이 수가 아닌 경우 IllegalArgumentException을 발생시킨다
+    - 기능2: 당첨 번호를 입력 받는다
+        - 예외1: 구분자가 잘못된 경우 IllegalArgumentException을 발생시킨다
+        - 예외2: 번호가 수가 아닌 경우 IllegalArgumentException을 발생시킨다
+    - 기능3: 보너스 번호를 입력 받는다
+        - 예외1: 번호가 수가 아닌 경우 IllegalArgumentException을 발생시킨다
+- 로또 번호 생성기
+    - 기능1: 1~45의 중복되지 않는 랜덤한 수 6개를 생성한다
+- 추첨 번호(당첨 번호, 보너스 번호) 검증기
+    - 기능1: 추첨 번호의 유효성을 검사한다
+        - 예외1: 당첨 번호가 6개 초과 또는 미만으로 입력된 경우 IllegalArgumentException을 발생시킨다
+        - 예외2: 보너스 번호가 1개 초과 또는 미만으로 입력된 경우 IllegalArgumentException을 발생시킨다
+        - 예외3: 추첨 번호가 1~45 범위를 벗어나면 IllegalArgumentException을 발생시킨다
+        - 예외4: 당첨 번호와 보너스 번호 집합에 중복이 존재하면 IllegalArgumentException을 발생시킨다
+- 로또 (사용자 구입)
+    - 기능1: 로또 번호가 중복되지 않았는지 검사한다
+        - 예외1: 번호가 중복된 경우 IllegalArgumentException을 발생시킨다
+    - 기능2: 로또의 당첨 여부를 검사한다
+- 로또 발매기
+    - 기능1: 주어진 개수만큼 로또를 발매한다
+        - 예외1: 개수가 0 이하인 경우 IllegalArgumentException을 발생시킨다
+        - 예외2: 최대 개수 이상의 개수가 주어진 경우 IllegalArgumentException을 발생시킨다(메모리 초과 방지)
+        - 부가 기능: 이미 발매된 로또와 중복된 로또 번호가 발매된 경우 이를 취소하고 재발매한다
+- 당첨 판정기
+    - 기능1: 로또의 당첨 여부를 검사한다
+    - 기능2: 수익률을 계산한다
+
 ## **학습 목표**
 
 - 관련 함수를 묶어 클래스를 만들고, 객체들이 협력하여 하나의 큰 기능을 수행하도록 한다.
