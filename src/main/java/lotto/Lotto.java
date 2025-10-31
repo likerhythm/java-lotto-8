@@ -18,4 +18,18 @@ public class Lotto {
     public boolean containBonusNumber(DrawNumbers drawNumbers) {
         return drawNumbers.containBonusNumberIn(numbers);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Lotto other)) {
+            return false;
+        }
+
+        return this.numbers.equals(other.numbers);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.numbers.hashCode();
+    }
 }
