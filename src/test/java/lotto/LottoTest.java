@@ -1,9 +1,15 @@
 package lotto;
 
+import static lotto.TestLottoNumber.*;
 import static lotto.TestLottoNumbers.*;
 
 import java.util.ArrayList;
+import lotto.base_numbers.BonusNumber;
 import lotto.base_numbers.UserNumbers;
+import lotto.base_numbers.WinningNumbers;
+import lotto.draw_numbers.DrawNumbers;
+import lotto.draw_numbers.DrawNumbersBuilder;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -26,4 +32,17 @@ class LottoTest {
         assertThatThrownBy(() -> new Lotto(new UserNumbers(numbers)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 로또_번호에서_당첨_번호가_정상적으로_카운트됩니다() {
+        WinningNumbers winningNumbers = new WinningNumbers(new ArrayList<>(BASIC_NUMBERS));
+        BonusNumber bonusNumber = new BonusNumber(new ArrayList<>(List.of(SEVEN)));
+        DrawNumbers drawNumbers = DrawNumbersBuilder.builder()
+                .winningNumbers(winningNumbers)
+                .bonusNumber(bonusNumber)
+                .build();
+        Lotto lotto = new Lotto(new UserNumbers(new ArrayList<>(BASIC_NUMBERS)));
+        Assertions.assertEquals(lotto.countWinningNumbers(drawNumbers), 6);
+    }
+
 }
