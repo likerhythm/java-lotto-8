@@ -1,6 +1,5 @@
 package lotto.base_numbers;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -15,17 +14,6 @@ public abstract class BaseNumbers {
     public BaseNumbers(List<LottoNumber> numbers) {
         Collections.sort(numbers);
         this.numbers = List.copyOf(numbers);
-    }
-
-    /**
-     * 로또 번호 뽑을 때 사용
-     * @param start
-     * @param end
-     * @param count
-     * @return
-     */
-    public static List<Integer> pickUniqueInRange(int start, int end, int count) {
-        return Randoms.pickUniqueNumbersInRange(start, end, count);
     }
 
     public boolean contain(BaseNumbers other) {
