@@ -45,4 +45,15 @@ class LottoTest {
         Assertions.assertEquals(lotto.countWinningNumbers(drawNumbers), 6);
     }
 
+    @Test
+    void 로또_번호에서_보너스_번호가_정상적으로_인식됩니다() {
+        WinningNumbers winningNumbers = new WinningNumbers(new ArrayList<>(BASIC_NUMBERS));
+        BonusNumber bonusNumber = new BonusNumber(new ArrayList<>(List.of(SEVEN)));
+        DrawNumbers drawNumbers = DrawNumbersBuilder.builder()
+                .winningNumbers(winningNumbers)
+                .bonusNumber(bonusNumber)
+                .build();
+        Lotto lotto = new Lotto(new UserNumbers(new ArrayList<>(List.of(ONE, TWO, THREE, FOUR, FIVE, SEVEN))));
+        Assertions.assertTrue(lotto.containBonusNumber(drawNumbers));
+    }
 }
