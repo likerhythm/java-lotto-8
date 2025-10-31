@@ -14,4 +14,8 @@ public class Lotto {
     public int countWinningNumbers(DrawNumbers drawNumbers) {
         return drawNumbers.countWinningNumbersIn(numbers);
     }
+
+    public boolean containBonusNumber(DrawNumbers drawNumbers) {
+        return drawNumbers.containBonusNumberIn(numbers);
+    }
 }
