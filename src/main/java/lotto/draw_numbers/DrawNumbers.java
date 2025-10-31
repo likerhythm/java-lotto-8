@@ -15,6 +15,8 @@ public class DrawNumbers {
         validate();
     }
 
+    public int countWinningNumbersIn(BaseNumbers baseNumbers) {
+        return baseNumbers.countContain(winningNumbers);
     }
 
     }
