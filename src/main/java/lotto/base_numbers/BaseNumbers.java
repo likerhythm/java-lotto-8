@@ -28,11 +28,6 @@ public abstract class BaseNumbers {
         return Randoms.pickUniqueNumbersInRange(start, end, count);
     }
 
-    /**
-     * 로또 보너스 번호 포함 여부 확인할 때 사용
-     * @param other
-     * @return
-     */
     public boolean contain(BaseNumbers other) {
         for (LottoNumber n : other.numbers) {
             if (!this.numbers.contains(n)) return false;
@@ -40,11 +35,6 @@ public abstract class BaseNumbers {
         return true;
     }
 
-    /**
-     * 로또 당첨 번호 몇 개 포함되어 있는지 확인할 때 사용
-     * @param other
-     * @return
-     */
     public int countContain(BaseNumbers other) {
         int count = 0;
         for (LottoNumber n : other.numbers) {
