@@ -1,6 +1,7 @@
 package lotto;
 
 import lotto.base_numbers.UserNumbers;
+import lotto.draw_numbers.DrawNumbers;
 
 public class Lotto {
 
@@ -8,5 +9,9 @@ public class Lotto {
 
     public Lotto(UserNumbers numbers) {
         this.numbers = numbers;
+    }
+
+    public int countWinningNumbers(DrawNumbers drawNumbers) {
+        return drawNumbers.countWinningNumbersIn(numbers);
     }
 }
