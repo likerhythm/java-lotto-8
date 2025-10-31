@@ -1,5 +1,6 @@
 package lotto.draw_numbers;
 
+import lotto.base_numbers.BaseNumbers;
 import lotto.base_numbers.BonusNumber;
 import lotto.base_numbers.WinningNumbers;
 
@@ -14,12 +15,8 @@ public class DrawNumbers {
         validate();
     }
 
-    protected void setWinningNumbers(WinningNumbers winningNumbers) {
-        this.winningNumbers = winningNumbers;
     }
 
-    protected void setBonusNumber(BonusNumber bonusNumber) {
-        this.bonusNumber = bonusNumber;
     }
 
     private void validate() {
