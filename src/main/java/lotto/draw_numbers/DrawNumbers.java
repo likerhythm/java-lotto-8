@@ -19,6 +19,8 @@ public class DrawNumbers {
         return baseNumbers.countContain(winningNumbers);
     }
 
+    public boolean containBonusNumberIn(BaseNumbers baseNumbers) {
+        return baseNumbers.contain(bonusNumber);
     }
 
     private void validate() {
