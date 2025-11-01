@@ -2,14 +2,14 @@ package lotto.draw_numbers;
 
 import lotto.base_numbers.BaseNumbers;
 import lotto.base_numbers.BonusNumber;
-import lotto.base_numbers.WinningNumbers;
+import lotto.base_numbers.MainNumbersContainer;
 
 public class DrawNumbers {
 
-    private WinningNumbers winningNumbers;
+    private MainNumbersContainer winningNumbers;
     private BonusNumber bonusNumber;
 
-    protected DrawNumbers(WinningNumbers winningNumbers, BonusNumber bonusNumber) {
+    protected DrawNumbers(MainNumbersContainer winningNumbers, BonusNumber bonusNumber) {
         this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
         validate();

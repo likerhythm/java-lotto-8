@@ -1,13 +1,13 @@
 package lotto;
 
-import lotto.base_numbers.UserNumbers;
+import lotto.base_numbers.MainNumbersContainer;
 import lotto.draw_numbers.DrawNumbers;
 
 public class Lotto {
 
-    private final UserNumbers numbers;
+    private final MainNumbersContainer numbers;
 
-    public Lotto(UserNumbers numbers) {
+    public Lotto(MainNumbersContainer numbers) {
         this.numbers = numbers;
     }
 

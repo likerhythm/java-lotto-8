@@ -5,8 +5,7 @@ import static lotto.TestLottoNumbers.*;
 
 import java.util.ArrayList;
 import lotto.base_numbers.BonusNumber;
-import lotto.base_numbers.UserNumbers;
-import lotto.base_numbers.WinningNumbers;
+import lotto.base_numbers.MainNumbersContainer;
 import lotto.draw_numbers.DrawNumbers;
 import lotto.draw_numbers.DrawNumbersBuilder;
 import org.junit.jupiter.api.Assertions;
@@ -21,7 +20,7 @@ class LottoTest {
     @Test
     void 로또_번호의_개수가_6개가_넘어가면_예외가_발생한다() {
         List<LottoNumber> numbers = new ArrayList<>(MANY_NUMBERS);
-        assertThatThrownBy(() -> new Lotto(new UserNumbers(numbers)))
+        assertThatThrownBy(() -> new Lotto(new MainNumbersContainer(numbers)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -29,31 +28,31 @@ class LottoTest {
     @Test
     void 로또_번호에_중복된_숫자가_있으면_예외가_발생한다() {
         List<LottoNumber> numbers = new ArrayList<>(DUPLICATE_NUMBERS);
-        assertThatThrownBy(() -> new Lotto(new UserNumbers(numbers)))
+        assertThatThrownBy(() -> new Lotto(new MainNumbersContainer(numbers)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
     void 로또_번호에서_당첨_번호가_정상적으로_카운트됩니다() {
-        WinningNumbers winningNumbers = new WinningNumbers(new ArrayList<>(BASIC_NUMBERS));
+        MainNumbersContainer winningNumbers = new MainNumbersContainer(new ArrayList<>(BASIC_NUMBERS));
         BonusNumber bonusNumber = new BonusNumber(new ArrayList<>(List.of(SEVEN)));
         DrawNumbers drawNumbers = DrawNumbersBuilder.builder()
                 .winningNumbers(winningNumbers)
                 .bonusNumber(bonusNumber)
                 .build();
-        Lotto lotto = new Lotto(new UserNumbers(new ArrayList<>(BASIC_NUMBERS)));
+        Lotto lotto = new Lotto(new MainNumbersContainer(new ArrayList<>(BASIC_NUMBERS)));
         Assertions.assertEquals(lotto.countWinningNumbers(drawNumbers), 6);
     }
 
     @Test
     void 로또_번호에서_보너스_번호가_정상적으로_인식됩니다() {
-        WinningNumbers winningNumbers = new WinningNumbers(new ArrayList<>(BASIC_NUMBERS));
+        MainNumbersContainer winningNumbers = new MainNumbersContainer(new ArrayList<>(BASIC_NUMBERS));
         BonusNumber bonusNumber = new BonusNumber(new ArrayList<>(List.of(SEVEN)));
         DrawNumbers drawNumbers = DrawNumbersBuilder.builder()
                 .winningNumbers(winningNumbers)
                 .bonusNumber(bonusNumber)
                 .build();
-        Lotto lotto = new Lotto(new UserNumbers(new ArrayList<>(List.of(ONE, TWO, THREE, FOUR, FIVE, SEVEN))));
+        Lotto lotto = new Lotto(new MainNumbersContainer(new ArrayList<>(List.of(ONE, TWO, THREE, FOUR, FIVE, SEVEN))));
         Assertions.assertTrue(lotto.containBonusNumber(drawNumbers));
     }
 }

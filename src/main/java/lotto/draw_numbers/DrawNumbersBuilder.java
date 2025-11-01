@@ -1,18 +1,18 @@
 package lotto.draw_numbers;
 
 import lotto.base_numbers.BonusNumber;
-import lotto.base_numbers.WinningNumbers;
+import lotto.base_numbers.MainNumbersContainer;
 
 public class DrawNumbersBuilder {
 
-    private WinningNumbers winningNumbers;
+    private MainNumbersContainer winningNumbers;
     private BonusNumber bonusNumber;
 
     public static DrawNumbersBuilder builder() {
         return new DrawNumbersBuilder();
     }
 
-    public DrawNumbersBuilder winningNumbers(WinningNumbers winningNumbers) {
+    public DrawNumbersBuilder winningNumbers(MainNumbersContainer winningNumbers) {
         this.winningNumbers = winningNumbers;
         return this;
     }

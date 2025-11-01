@@ -4,11 +4,16 @@ import java.util.HashSet;
 import java.util.List;
 import lotto.LottoNumber;
 
-public interface MainNumberContainer {
+public class MainNumbersContainer extends BaseNumbers {
 
-    int REQUIRED_QUANTITY = 6;
+    private static final int REQUIRED_QUANTITY = 6;
 
-    default void validate(List<LottoNumber> numbers) {
+    public MainNumbersContainer(List<LottoNumber> numbers) {
+        super(numbers);
+        validate(numbers);
+    }
+
+    private void validate(List<LottoNumber> numbers) {
         if (numbers.size() != new HashSet<>(numbers).size()) {
             throw new IllegalArgumentException("[ERROR] 로또 번호 및 당첨 번호는 중복될 수 없습니다");
         }
