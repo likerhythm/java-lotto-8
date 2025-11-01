@@ -32,4 +32,9 @@ public class Lotto {
     public int hashCode() {
         return this.numbers.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return numbers.toString();
+    }
 }

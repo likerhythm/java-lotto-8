@@ -2,6 +2,7 @@ package lotto.base_numbers;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import lotto.LottoNumber;
 
 public abstract class BaseNumbers {
@@ -26,6 +27,14 @@ public abstract class BaseNumbers {
             if (this.numbers.contains(n)) count++;
         }
         return count;
+    }
+
+    @Override
+    public String toString() {
+        String str = numbers.stream()
+                .map(LottoNumber::toString)
+                .collect(Collectors.joining(", "));
+        return "[" + str + "]";
     }
 
     @Override
