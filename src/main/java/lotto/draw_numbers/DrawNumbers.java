@@ -1,26 +1,25 @@
 package lotto.draw_numbers;
 
-import lotto.base_numbers.BaseNumbers;
-import lotto.base_numbers.BonusNumber;
+import lotto.LottoNumber;
 import lotto.base_numbers.MainNumbersContainer;
 
 public class DrawNumbers {
 
-    private MainNumbersContainer winningNumbers;
-    private BonusNumber bonusNumber;
+    private final MainNumbersContainer winningNumbers;
+    private final LottoNumber bonusNumber;
 
-    protected DrawNumbers(MainNumbersContainer winningNumbers, BonusNumber bonusNumber) {
+    protected DrawNumbers(MainNumbersContainer winningNumbers, LottoNumber bonusNumber) {
         this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
         validate();
     }
 
-    public int countWinningNumbersIn(BaseNumbers baseNumbers) {
-        return baseNumbers.countContain(winningNumbers);
+    public int countWinningNumbersIn(MainNumbersContainer mainNumberContainer) {
+        return mainNumberContainer.countContain(winningNumbers);
     }
 
-    public boolean containBonusNumberIn(BaseNumbers baseNumbers) {
-        return baseNumbers.contain(bonusNumber);
+    public boolean containBonusNumberIn(MainNumbersContainer mainNumbersContainer) {
+        return mainNumbersContainer.contain(bonusNumber);
     }
 
     private void validate() {

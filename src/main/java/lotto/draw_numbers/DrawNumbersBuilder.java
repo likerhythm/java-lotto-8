@@ -1,12 +1,12 @@
 package lotto.draw_numbers;
 
-import lotto.base_numbers.BonusNumber;
+import lotto.LottoNumber;
 import lotto.base_numbers.MainNumbersContainer;
 
 public class DrawNumbersBuilder {
 
     private MainNumbersContainer winningNumbers;
-    private BonusNumber bonusNumber;
+    private LottoNumber bonusNumber;
 
     public static DrawNumbersBuilder builder() {
         return new DrawNumbersBuilder();
@@ -17,7 +17,7 @@ public class DrawNumbersBuilder {
         return this;
     }
 
-    public DrawNumbersBuilder bonusNumber(BonusNumber bonusNumber) {
+    public DrawNumbersBuilder bonusNumber(LottoNumber bonusNumber) {
         this.bonusNumber = bonusNumber;
         return this;
     }
