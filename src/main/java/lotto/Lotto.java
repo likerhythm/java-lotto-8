@@ -1,13 +1,15 @@
 package lotto;
 
-import lotto.base_numbers.MainNumbersContainer;
+import lotto.base_numbers.BaseNumbers;
 import lotto.draw_numbers.DrawNumbers;
 
 public class Lotto {
 
-    private final MainNumbersContainer numbers;
+    public static final int PRICE = 1000;
 
-    public Lotto(MainNumbersContainer numbers) {
+    private final BaseNumbers numbers;
+
+    public Lotto(BaseNumbers numbers) {
         this.numbers = numbers;
     }
 
