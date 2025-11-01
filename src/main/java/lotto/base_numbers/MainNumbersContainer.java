@@ -1,5 +1,6 @@
 package lotto.base_numbers;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -10,12 +11,13 @@ public class MainNumbersContainer {
 
     private static final int REQUIRED_QUANTITY = 6;
 
-    private List<LottoNumber> numbers;
+    private final List<LottoNumber> numbers;
 
     public MainNumbersContainer(List<LottoNumber> numbers) {
-        Collections.sort(numbers);
-        this.numbers = List.copyOf(numbers);
-        validate(numbers);
+        List<LottoNumber> mutableNumbers = new ArrayList<>(numbers);
+        Collections.sort(mutableNumbers);
+        this.numbers = List.copyOf(mutableNumbers);
+        validate(this.numbers);
     }
 
     public boolean contain(LottoNumber lottoNumber) {
