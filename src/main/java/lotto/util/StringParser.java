@@ -1,15 +1,17 @@
 package lotto.util;
 
+import lotto.ErrorMessage;
+
 public class StringParser {
 
     public static int toInteger(String input, String domain) {
         if (input == null) {
-            throw new IllegalArgumentException("[ERROR] 알 수 없는 오류가 발생했습니다");
+            throw new IllegalArgumentException(ErrorMessage.UNKNOWN_ERROR.getMessage());
         }
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] " + domain + "은/는 정수로 입력해주세요");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_INTEGER.getMessage());
         }
     }
 

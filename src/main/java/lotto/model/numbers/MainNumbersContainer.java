@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
+import lotto.ErrorMessage;
 import lotto.exception.LottoNumberException;
 
 public class MainNumbersContainer {
@@ -58,10 +59,10 @@ public class MainNumbersContainer {
 
     private void validate(List<LottoNumber> numbers) {
         if (numbers.size() != new HashSet<>(numbers).size()) {
-            throw new LottoNumberException("[ERROR] 로또 번호 및 당첨 번호는 중복될 수 없습니다");
+            throw new LottoNumberException(ErrorMessage.DUPLICATE_NUMBER_CONTAINER.getMessage());
         }
         if (numbers.size() != REQUIRED_QUANTITY) {
-            throw new LottoNumberException("[ERROR] 로또 번호 및 당첨 번호는 " + REQUIRED_QUANTITY +"개입니다");
+            throw new LottoNumberException(ErrorMessage.INVALID_LOTTO_NUMBER_COUNT.getMessage());
         }
     }
 }

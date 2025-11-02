@@ -2,6 +2,7 @@ package lotto.util;
 
 import java.util.Arrays;
 import java.util.List;
+import lotto.ErrorMessage;
 import lotto.exception.LottoPurchaseException;
 import lotto.model.numbers.LottoNumber;
 
@@ -25,7 +26,7 @@ public class InputParser {
 
     private static void validatePositive(int value) {
         if (value <= 0) {
-            throw new LottoPurchaseException("[ERROR] 구입 금액은 양수로 입력해주세요");
+            throw new LottoPurchaseException(ErrorMessage.PAYMENT_PRICE_NOT_POSITIVE.getMessage());
         }
     }
 }

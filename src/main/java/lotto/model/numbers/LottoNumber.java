@@ -1,5 +1,6 @@
 package lotto.model.numbers;
 
+import lotto.ErrorMessage;
 import lotto.exception.LottoNumberException;
 
 public class LottoNumber implements Comparable<LottoNumber> {
@@ -43,7 +44,7 @@ public class LottoNumber implements Comparable<LottoNumber> {
 
     private void validate(int number) {
         if (!inRange(number)) {
-            throw new LottoNumberException("[ERROR] 번호는 " + MIN + "보다 작을 수 없고 " + MAX + "보다 클 수 없습니다");
+            throw new LottoNumberException(ErrorMessage.INVALID_LOTTO_NUMBER_RANGE.getMessage());
         }
     }
 

@@ -1,5 +1,6 @@
 package lotto.model.lotto;
 
+import lotto.ErrorMessage;
 import lotto.exception.LottoPurchaseException;
 
 public class LottoUtil {
@@ -15,7 +16,7 @@ public class LottoUtil {
 
     private static void validateDivisible(int value) {
         if (value % Lotto.PRICE != 0) {
-            throw new LottoPurchaseException("[ERROR] 구입 금액은 로또 가격의 배수로 입력해주세요");
+            throw new LottoPurchaseException(ErrorMessage.INVALID_PAYMENT_PRICE.getMessage());
         }
     }
 }

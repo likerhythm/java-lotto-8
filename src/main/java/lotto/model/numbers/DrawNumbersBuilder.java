@@ -1,5 +1,7 @@
 package lotto.model.numbers;
 
+import lotto.ErrorMessage;
+
 public class DrawNumbersBuilder {
 
     private MainNumbersContainer winningNumbers;
@@ -26,10 +28,10 @@ public class DrawNumbersBuilder {
 
     private void validate() {
         if (this.winningNumbers == null) {
-            throw new IllegalStateException("[ERROR] 당첨 번호가 등록되지 않았습니다");
+            throw new IllegalStateException(ErrorMessage.INVALID_BUILD_STATE.getMessage());
         }
         if (this.bonusNumber == null) {
-            throw new IllegalStateException("[ERROR] 보너스 번호가 등록되지 않았습니다");
+            throw new IllegalStateException(ErrorMessage.INVALID_BUILD_STATE.getMessage());
         }
     }
 }

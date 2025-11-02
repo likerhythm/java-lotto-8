@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import lotto.ErrorMessage;
 import lotto.dto.LottoResult;
 import lotto.exception.LottoPurchaseException;
 import lotto.model.numbers.DrawNumbers;
@@ -72,7 +73,7 @@ public class Lottos {
 
     private void validate(int count) {
         if (count > LIMIT_QUANTITY) {
-            throw new LottoPurchaseException("[ERROR] 로또는 최대 " + LIMIT_QUANTITY +"개 구매할 수 있습니다");
+            throw new LottoPurchaseException(ErrorMessage.EXCEED_MAX_LOTTO_COUNT.getMessage());
         }
     }
 }

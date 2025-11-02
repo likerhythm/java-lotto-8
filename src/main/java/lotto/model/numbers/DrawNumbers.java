@@ -1,5 +1,6 @@
 package lotto.model.numbers;
 
+import lotto.ErrorMessage;
 import lotto.exception.LottoNumberException;
 
 public class DrawNumbers {
@@ -23,7 +24,7 @@ public class DrawNumbers {
 
     private void validate() {
         if (winningNumbers.contain(bonusNumber)) {
-            throw new LottoNumberException("[ERROR] 당첨 번호와 보너스 번호는 중복될 수 없습니다");
+            throw new LottoNumberException(ErrorMessage.DUPLICATE_DRAW_NUMBERS.getMessage());
         }
     }
 }
