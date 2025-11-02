@@ -1,21 +1,16 @@
-package lotto;
+package lotto.lotto;
 
 import lotto.base_numbers.MainNumbersContainer;
 import lotto.draw_numbers.DrawNumbers;
 
 public class Lotto {
 
-    private static final int PRICE = 1000;
+    protected static final int PRICE = 1000;
 
     private final MainNumbersContainer numbers;
 
     public Lotto(MainNumbersContainer numbers) {
         this.numbers = numbers;
-    }
-
-    public static int calculateLottoCount(int paymentPrice) {
-        validateDivisible(paymentPrice);
-        return paymentPrice / PRICE;
     }
 
     public int countWinningNumbers(DrawNumbers drawNumbers) {
@@ -43,11 +38,5 @@ public class Lotto {
     @Override
     public String toString() {
         return numbers.toString();
-    }
-
-    private static void validateDivisible(int value) {
-        if (value % Lotto.PRICE != 0) {
-            throw new IllegalArgumentException("[ERROR] 구입 금액은 로또 가격의 배수로 입력해주세요");
-        }
     }
 }

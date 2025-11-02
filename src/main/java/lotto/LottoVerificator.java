@@ -1,9 +1,10 @@
 package lotto;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import lotto.draw_numbers.DrawNumbers;
+import lotto.lotto.Lotto;
+import lotto.lotto.LottoUtil;
 
 public class LottoVerificator {
 
@@ -28,7 +29,7 @@ public class LottoVerificator {
             int count = entry.getValue();
             totalReward += reward * count;
         }
-        double v = calculateRateOfReturn(totalReward);
+        double v = LottoUtil.calculateRateOfReturn(totalReward, lottos.size());
         return Math.round(v * 100) / 100.0;
     }
 
@@ -41,9 +42,5 @@ public class LottoVerificator {
             ranks.put(rank, ranks.getOrDefault(rank, 0) + 1);
         }
         return ranks;
-    }
-
-    private double calculateRateOfReturn(long totalReward) {
-        return (totalReward / (((double) Lotto.PRICE) * this.lottos.size())) * 100;
     }
 }

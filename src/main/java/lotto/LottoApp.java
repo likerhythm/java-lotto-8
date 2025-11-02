@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 import lotto.base_numbers.MainNumbersContainer;
 import lotto.draw_numbers.DrawNumbers;
+import lotto.lotto.Lotto;
 
 public class LottoApp {
 

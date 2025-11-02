@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import lotto.base_numbers.MainNumbersContainer;
 import lotto.draw_numbers.DrawNumbers;
 import lotto.draw_numbers.DrawNumbersBuilder;
+import lotto.lotto.Lotto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
