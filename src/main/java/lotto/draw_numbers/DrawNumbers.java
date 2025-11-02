@@ -8,7 +8,7 @@ public class DrawNumbers {
     private final MainNumbersContainer winningNumbers;
     private final LottoNumber bonusNumber;
 
-    protected DrawNumbers(MainNumbersContainer winningNumbers, LottoNumber bonusNumber) {
+    public DrawNumbers(MainNumbersContainer winningNumbers, LottoNumber bonusNumber) {
         this.winningNumbers = winningNumbers;
         this.bonusNumber = bonusNumber;
         validate();
