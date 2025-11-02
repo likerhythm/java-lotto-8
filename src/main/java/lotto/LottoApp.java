@@ -29,8 +29,8 @@ public class LottoApp {
 
     private List<Lotto> getLottos() {
         String input = inputView.paymentPriceInputGuide();
-        int lottoCount = InputParser.parsePaymentPriceToCount(input);
-        List<Lotto> purchasedLotto = LottoGenerator.generateLottos(lottoCount);
+        int paymentPrice = InputParser.parsePaymentPriceToCount(input);
+        List<Lotto> purchasedLotto = LottoGenerator.generateLottos(paymentPrice);
         outputView.printPurchasedLotto(purchasedLotto.stream().map(Lotto::toString).toList());
         return purchasedLotto;
     }

@@ -9,7 +9,8 @@ public class LottoGenerator {
 
     private static final int LIMIT_QUANTITY = 1000; // TODO 현재 메모리양 고려한 로직 구현
 
-    public static List<Lotto> generateLottos(int count) {
+    public static List<Lotto> generateLottos(int paymentPrice) {
+        int count = Lotto.calculateLottoCount(paymentPrice);
         validate(count);
         List<Lotto> result = new ArrayList<>();
         while (count > 0) {
