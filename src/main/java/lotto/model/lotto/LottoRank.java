@@ -34,14 +34,6 @@ public enum LottoRank {
                 .orElse(_8TH);
     }
 
-    public int getReward() {
-        return this.reward;
-    }
-
-    public boolean isWinner() {
-        return this.reward > 0;
-    }
-
     public static Map<LottoRank, Integer> makeWinnerLayout() {
         Map<LottoRank, Integer> ranks = new LinkedHashMap<>();
         for (LottoRank rank : LottoRank.values()) {
@@ -50,6 +42,14 @@ public enum LottoRank {
             }
         }
         return ranks;
+    }
+
+    public int getReward() {
+        return this.reward;
+    }
+
+    public boolean isWinner() {
+        return this.reward > 0;
     }
 
     @Override
