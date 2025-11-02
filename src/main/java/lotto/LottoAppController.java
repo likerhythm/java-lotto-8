@@ -47,15 +47,13 @@ public class LottoAppController {
     }
 
     private MainNumbersContainer getWinningNumbers() {
-        String input;
-        input = inputView.winningNumbersInputGuide();
-        List<LottoNumber> winningNumbers = InputParser.parseLottoNumbers(input);
+        String input = inputView.winningNumbersInputGuide();
+        List<LottoNumber> winningNumbers = InputParser.parseWinningNumbers(input);
         return new MainNumbersContainer(winningNumbers);
     }
 
     private DrawNumbers getBonusNumberAndBuildDrawNumbers(MainNumbersContainer winningNumbers) {
-        String input;
-        input = inputView.bonusNumberInputGuide();
+        String input = inputView.bonusNumberInputGuide();
         LottoNumber bonusNumber = InputParser.parseBonusNumber(input);
         return new DrawNumbers(winningNumbers, bonusNumber);
     }
