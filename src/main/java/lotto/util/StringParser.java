@@ -18,6 +18,6 @@ public class StringParser {
     }
 
     public static String numberFormat(double number) { // todo 둘째자리 반올림 안될걸
-        return String.format("%,1f", number);
+        return String.format("%,.1f", number);
     }
 }
