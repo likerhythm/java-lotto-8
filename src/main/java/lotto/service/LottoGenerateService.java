@@ -3,6 +3,7 @@ package lotto.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import lotto.exception.LottoPurchaseException;
 import lotto.model.numbers.LottoNumber;
 import lotto.model.numbers.MainNumbersContainer;
 import lotto.model.lotto.Lotto;
@@ -37,7 +38,7 @@ public class LottoGenerateService {
 
     private void validate(int count) {
         if (count > LIMIT_QUANTITY) {
-            throw new IllegalArgumentException("[ERROR] 로또는 최대 " + LIMIT_QUANTITY +"개 구매할 수 있습니다");
+            throw new LottoPurchaseException("[ERROR] 로또는 최대 " + LIMIT_QUANTITY +"개 구매할 수 있습니다");
         }
     }
 }
