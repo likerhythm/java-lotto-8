@@ -17,7 +17,7 @@ public class StringParser {
         return String.format("%,d", number);
     }
 
-    public static String numberFormat(double number) { // todo 둘째자리 반올림 안될걸
+    public static String numberFormat(double number) {
         return String.format("%,.1f", number);
     }
 }
