@@ -35,7 +35,7 @@ public class LottoAppController {
         LottoResult lottoResult = runWithRetry(() -> getLottoResult(drawNumbers, purchasedLotto));
 
         List<String> winningResult = makeWinningResult(lottoResult);
-        outputView.printLottoResult(winningResult, String.valueOf(lottoResult.rateOfReturn()));
+        outputView.printLottoResult(winningResult, StringParser.numberFormat(lottoResult.rateOfReturn()));
     }
 
     private List<Lotto> getLottos() {
