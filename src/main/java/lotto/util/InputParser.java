@@ -12,7 +12,7 @@ public class InputParser {
         return paymentPrice;
     }
 
-    public static List<LottoNumber> parseLottoNumbers(String input) {
+    public static List<LottoNumber> parseWinningNumbers(String input) {
         return Arrays.stream(input.split(","))
                 .map(str -> LottoNumber.of(StringParser.toInteger(str, "추첨 번호")))
                 .toList();
