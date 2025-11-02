@@ -10,7 +10,7 @@ import lotto.model.lotto.LottoUtil;
 
 public class LottoGenerateService {
 
-    private static final int LIMIT_QUANTITY = 1000; // TODO 현재 메모리양 고려한 로직 구현
+    private static final int LIMIT_QUANTITY = 1000;
 
     public static List<Lotto> generateLottos(int paymentPrice) {
         int count = LottoUtil.calculateLottoCount(paymentPrice);
