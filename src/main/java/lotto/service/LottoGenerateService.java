@@ -10,9 +10,9 @@ import lotto.model.lotto.LottoUtil;
 
 public class LottoGenerateService {
 
-    private static final int LIMIT_QUANTITY = 1000;
+    private final int LIMIT_QUANTITY = 1000;
 
-    public static List<Lotto> generateLottos(int paymentPrice) {
+    public List<Lotto> generateLottos(int paymentPrice) {
         int count = LottoUtil.calculateLottoCount(paymentPrice);
         validate(count);
 
@@ -28,16 +28,16 @@ public class LottoGenerateService {
         return result;
     }
 
-    private static Lotto generateLotto() {
+    private Lotto generateLotto() {
         List<Integer> numbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
         List<LottoNumber> lottoNumbers = numbers.stream().map(LottoNumber::of).toList();
         MainNumbersContainer lottoNumbersContainer = new MainNumbersContainer(lottoNumbers);
         return new Lotto(lottoNumbersContainer);
     }
 
-    private static void validate(int count) {
-        if (count > LottoGenerateService.LIMIT_QUANTITY) {
-            throw new IllegalArgumentException("[ERROR] 로또는 최대 " + LottoGenerateService.LIMIT_QUANTITY +"개 구매할 수 있습니다");
+    private void validate(int count) {
+        if (count > LIMIT_QUANTITY) {
+            throw new IllegalArgumentException("[ERROR] 로또는 최대 " + LIMIT_QUANTITY +"개 구매할 수 있습니다");
         }
     }
 }
