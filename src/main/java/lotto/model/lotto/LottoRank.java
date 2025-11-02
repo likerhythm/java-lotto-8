@@ -17,9 +17,9 @@ public enum LottoRank {
     _8TH(0, 0, null),
     ;
 
-    private int reward;
-    private Integer matchCount;
-    private Boolean bonusMatch;
+    private final int reward;
+    private final Integer matchCount;
+    private final Boolean bonusMatch;
 
     LottoRank(int reward, Integer matchCount, Boolean bonusMatch) {
         this.reward = reward;
