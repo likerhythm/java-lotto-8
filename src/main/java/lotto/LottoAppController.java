@@ -11,7 +11,7 @@ import lotto.model.numbers.MainNumbersContainer;
 import lotto.model.numbers.DrawNumbers;
 import lotto.model.lotto.Lotto;
 import lotto.service.LottoGenerateService;
-import lotto.service.LottoVerifyService;
+import lotto.model.LottoMatcher;
 import lotto.util.InputParser;
 import lotto.util.RetryExecutor;
 import lotto.util.StringParser;
@@ -20,12 +20,14 @@ import lotto.view.OutputView;
 
 public class LottoAppController {
 
-    private InputView inputView;
-    private OutputView outputView;
+    private final InputView inputView;
+    private final OutputView outputView;
+    private final LottoGenerateService lottoGenerateService;
 
-    public LottoAppController(InputView inputView, OutputView outputView) {
+    public LottoAppController(InputView inputView, OutputView outputView, LottoGenerateService lottoGenerateService) {
         this.inputView = inputView;
         this.outputView = outputView;
+        this.lottoGenerateService = lottoGenerateService;
     }
 
     public void run() {
@@ -42,6 +44,7 @@ public class LottoAppController {
         String input = inputView.paymentPriceInputGuide();
         int paymentPrice = InputParser.parsePaymentPriceToCount(input);
         List<Lotto> purchasedLotto = LottoGenerateService.generateLottos(paymentPrice);
+        List<Lotto> purchasedLotto = lottoGenerateService.generateLottos(paymentPrice);
         outputView.printPurchasedLotto(purchasedLotto.stream().map(Lotto::toString).toList());
         return purchasedLotto;
     }
@@ -59,8 +62,8 @@ public class LottoAppController {
     }
 
     private LottoResult getLottoResult(DrawNumbers drawNumbers, List<Lotto> purchasedLotto) {
-        LottoVerifyService lottoVerifyService = new LottoVerifyService(drawNumbers, purchasedLotto);
-        return lottoVerifyService.check();
+        LottoMatcher lottoMatcher = new LottoMatcher(drawNumbers, purchasedLotto);
+        return lottoMatcher.check();
     }
 
     private List<String> makeWinningResult(LottoResult lottoResult) {
