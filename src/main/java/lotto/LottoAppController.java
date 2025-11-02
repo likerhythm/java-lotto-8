@@ -43,7 +43,6 @@ public class LottoAppController {
     private List<Lotto> getLottos() {
         String input = inputView.paymentPriceInputGuide();
         int paymentPrice = InputParser.parsePaymentPriceToCount(input);
-        List<Lotto> purchasedLotto = LottoGenerateService.generateLottos(paymentPrice);
         List<Lotto> purchasedLotto = lottoGenerateService.generateLottos(paymentPrice);
         outputView.printPurchasedLotto(purchasedLotto.stream().map(Lotto::toString).toList());
         return purchasedLotto;
