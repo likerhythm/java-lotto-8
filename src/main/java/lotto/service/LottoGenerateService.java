@@ -15,6 +15,7 @@ public class LottoGenerateService {
     public static List<Lotto> generateLottos(int paymentPrice) {
         int count = LottoUtil.calculateLottoCount(paymentPrice);
         validate(count);
+
         List<Lotto> result = new ArrayList<>();
         while (count > 0) {
             Lotto lotto = generateLotto();
@@ -24,7 +25,6 @@ public class LottoGenerateService {
                 result.add(lotto);
             }
         }
-        
         return result;
     }
 
