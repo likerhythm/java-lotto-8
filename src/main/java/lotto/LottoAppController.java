@@ -10,6 +10,7 @@ import lotto.model.numbers.LottoNumber;
 import lotto.model.numbers.MainNumbersContainer;
 import lotto.model.numbers.DrawNumbers;
 import lotto.model.lotto.Lottos;
+import lotto.singleton.Singleton;
 import lotto.util.InputParser;
 import lotto.util.RetryExecutor;
 import lotto.util.StringParser;

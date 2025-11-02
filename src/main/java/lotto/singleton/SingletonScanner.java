@@ -1,4 +1,4 @@
-package lotto;
+package lotto.singleton;
 
 import java.io.File;
 import java.net.URL;

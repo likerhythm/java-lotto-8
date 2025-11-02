@@ -1,7 +1,7 @@
 package lotto.view;
 
 import java.util.List;
-import lotto.Singleton;
+import lotto.singleton.Singleton;
 
 @Singleton
 public class OutputView {
