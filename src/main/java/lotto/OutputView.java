@@ -6,6 +6,7 @@ public class OutputView {
 
     public String printPurchasedLotto(List<String> purchasedLotto) {
         StringBuilder sb = new StringBuilder();
+        sb.append(purchasedLotto.size()).append("개를 구매했습니다.\n");
         for (String str : purchasedLotto) {
             sb.append(str).append("\n");
         }
