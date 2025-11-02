@@ -1,8 +1,12 @@
 package lotto.view;
 
 import java.util.List;
+import lotto.Singleton;
 
+@Singleton
 public class OutputView {
+
+    private OutputView() {}
 
     public String printPurchasedLotto(List<String> purchasedLotto) {
         StringBuilder sb = new StringBuilder();

@@ -18,12 +18,13 @@ import lotto.util.StringParser;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
+@Singleton
 public class LottoAppController {
 
     private final InputView inputView;
     private final OutputView outputView;
 
-    public LottoAppController(InputView inputView, OutputView outputView) {
+    private LottoAppController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
