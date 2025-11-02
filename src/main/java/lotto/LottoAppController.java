@@ -76,6 +76,13 @@ public class LottoAppController {
     }
 
     private <T> T runWithRetry(Supplier<T> task) {
-        return RetryExecutor.runWithRetry(task);
+        int attempt = 0;
+        while (true) {
+            try {
+                return RetryExecutor.run(task, attempt++);
+            } catch(IllegalArgumentException e) {
+                outputView.printErrorMessage(e.getMessage());
+            }
+        }
     }
 }

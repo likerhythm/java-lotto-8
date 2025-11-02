@@ -6,18 +6,10 @@ public class RetryExecutor {
 
     private static final int MAX_RETRY = 100;
 
-    public static <T> T runWithRetry(Supplier<T> task) {
-        int attempt = 0;
-        while (true) {
-            try {
-                return task.get();
-            } catch(IllegalArgumentException e) {
-                if (attempt >= MAX_RETRY) {
-                    throw new RuntimeException("최대 재시도 횟수를 초과했습니다. 처음부터 다시 시도해주세요.");
-                }
-                System.out.println(e.getMessage());
-                attempt++;
-            }
+    public static <T> T run(Supplier<T> task, int attempt) {
+        if (attempt > MAX_RETRY) {
+            throw new RuntimeException("[ERROR] 최대 재시도 횟수를 초과했습니다. 처음부터 다시 시도해주세요.");
         }
+        return task.get();
     }
 }
