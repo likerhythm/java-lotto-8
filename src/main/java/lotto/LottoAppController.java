@@ -10,7 +10,7 @@ import lotto.model.numbers.LottoNumber;
 import lotto.model.numbers.MainNumbersContainer;
 import lotto.model.numbers.DrawNumbers;
 import lotto.model.lotto.Lotto;
-import lotto.service.LottoGenerateService;
+import lotto.model.lotto.Lottos;
 import lotto.model.LottoMatcher;
 import lotto.util.InputParser;
 import lotto.util.RetryExecutor;
@@ -22,30 +22,28 @@ public class LottoAppController {
 
     private final InputView inputView;
     private final OutputView outputView;
-    private final LottoGenerateService lottoGenerateService;
 
-    public LottoAppController(InputView inputView, OutputView outputView, LottoGenerateService lottoGenerateService) {
+    public LottoAppController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
-        this.lottoGenerateService = lottoGenerateService;
     }
 
     public void run() {
-        List<Lotto> purchasedLotto = runWithRetry(this::getLottos);
+        Lottos lottos = runWithRetry(this::getLottos);
         MainNumbersContainer winningNumbers = runWithRetry(this::getWinningNumbers);
         DrawNumbers drawNumbers = runWithRetry(() -> getBonusNumberAndBuildDrawNumbers(winningNumbers));
-        LottoResult lottoResult = runWithRetry(() -> getLottoResult(drawNumbers, purchasedLotto));
+        LottoResult lottoResult = runWithRetry(() -> lottos.check(drawNumbers));
 
         List<String> winningResult = makeWinningResult(lottoResult);
         outputView.printLottoResult(winningResult, StringParser.numberFormat(lottoResult.rateOfReturn()));
     }
 
-    private List<Lotto> getLottos() {
+    private Lottos getLottos() {
         String input = inputView.paymentPriceInputGuide();
         int paymentPrice = InputParser.parsePaymentPriceToCount(input);
-        List<Lotto> purchasedLotto = lottoGenerateService.generateLottos(paymentPrice);
-        outputView.printPurchasedLotto(purchasedLotto.stream().map(Lotto::toString).toList());
-        return purchasedLotto;
+        Lottos lottos = new Lottos(paymentPrice);
+        outputView.printPurchasedLotto(lottos.getLottoInfo());
+        return lottos;
     }
 
     private MainNumbersContainer getWinningNumbers() {
@@ -58,11 +56,6 @@ public class LottoAppController {
         String input = inputView.bonusNumberInputGuide();
         LottoNumber bonusNumber = InputParser.parseBonusNumber(input);
         return new DrawNumbers(winningNumbers, bonusNumber);
-    }
-
-    private LottoResult getLottoResult(DrawNumbers drawNumbers, List<Lotto> purchasedLotto) {
-        LottoMatcher lottoMatcher = new LottoMatcher(drawNumbers, purchasedLotto);
-        return lottoMatcher.check();
     }
 
     private List<String> makeWinningResult(LottoResult lottoResult) {
