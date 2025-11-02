@@ -1,11 +1,10 @@
-package lotto.base_numbers;
+package lotto.model.numbers;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
-import lotto.LottoNumber;
 
 public class MainNumbersContainer {
 

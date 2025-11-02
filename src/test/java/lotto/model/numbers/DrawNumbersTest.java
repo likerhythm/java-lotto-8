@@ -1,11 +1,9 @@
-package lotto;
+package lotto.model.numbers;
 
 import static lotto.TestLottoNumber.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import lotto.base_numbers.MainNumbersContainer;
-import lotto.draw_numbers.DrawNumbersBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

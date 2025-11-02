@@ -1,5 +1,7 @@
 package lotto;
 
+import lotto.model.numbers.LottoNumber;
+
 public class TestLottoNumber {
 
     public static final LottoNumber ONE = LottoNumber.of(1);

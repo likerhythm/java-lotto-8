@@ -1,7 +1,7 @@
-package lotto.lotto;
+package lotto.model.lotto;
 
-import lotto.base_numbers.MainNumbersContainer;
-import lotto.draw_numbers.DrawNumbers;
+import lotto.model.numbers.MainNumbersContainer;
+import lotto.model.numbers.DrawNumbers;
 
 public class Lotto {
 

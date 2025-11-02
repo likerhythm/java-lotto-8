@@ -3,6 +3,7 @@ package lotto;
 import static lotto.TestLottoNumber.*;
 
 import java.util.List;
+import lotto.model.numbers.LottoNumber;
 
 public class TestLottoNumbers {
 

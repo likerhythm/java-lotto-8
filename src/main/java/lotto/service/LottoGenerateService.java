@@ -1,13 +1,14 @@
-package lotto;
+package lotto.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
-import lotto.base_numbers.MainNumbersContainer;
-import lotto.lotto.Lotto;
-import lotto.lotto.LottoUtil;
+import lotto.model.numbers.LottoNumber;
+import lotto.model.numbers.MainNumbersContainer;
+import lotto.model.lotto.Lotto;
+import lotto.model.lotto.LottoUtil;
 
-public class LottoGenerator {
+public class LottoGenerateService {
 
     private static final int LIMIT_QUANTITY = 1000; // TODO 현재 메모리양 고려한 로직 구현
 
@@ -35,8 +36,8 @@ public class LottoGenerator {
     }
 
     private static void validate(int count) {
-        if (count > LottoGenerator.LIMIT_QUANTITY) {
-            throw new IllegalArgumentException("[ERROR] 로또는 최대 " + LottoGenerator.LIMIT_QUANTITY +"개 구매할 수 있습니다");
+        if (count > LottoGenerateService.LIMIT_QUANTITY) {
+            throw new IllegalArgumentException("[ERROR] 로또는 최대 " + LottoGenerateService.LIMIT_QUANTITY +"개 구매할 수 있습니다");
         }
     }
 }

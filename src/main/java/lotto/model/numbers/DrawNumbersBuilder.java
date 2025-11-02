@@ -1,7 +1,4 @@
-package lotto.draw_numbers;
-
-import lotto.LottoNumber;
-import lotto.base_numbers.MainNumbersContainer;
+package lotto.model.numbers;
 
 public class DrawNumbersBuilder {
 

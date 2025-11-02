@@ -1,17 +1,19 @@
-package lotto;
+package lotto.service;
 
 import java.util.List;
 import java.util.Map;
-import lotto.draw_numbers.DrawNumbers;
-import lotto.lotto.Lotto;
-import lotto.lotto.LottoUtil;
+import lotto.model.lotto.LottoRank;
+import lotto.dto.LottoResult;
+import lotto.model.numbers.DrawNumbers;
+import lotto.model.lotto.Lotto;
+import lotto.model.lotto.LottoUtil;
 
-public class LottoVerificator {
+public class LottoVerifyService {
 
     private DrawNumbers drawNumbers;
     private List<Lotto> lottos;
 
-    public LottoVerificator(DrawNumbers drawNumbers, List<Lotto> lottos) {
+    public LottoVerifyService(DrawNumbers drawNumbers, List<Lotto> lottos) {
         this.drawNumbers = drawNumbers;
         this.lottos = lottos;
     }

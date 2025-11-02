@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model.numbers;
 
 public class LottoNumber implements Comparable<LottoNumber> {
 

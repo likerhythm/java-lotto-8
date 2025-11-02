@@ -1,8 +1,9 @@
-package lotto;
+package lotto.model.lotto;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import lotto.util.StringParser;
 
 public enum LottoRank {
 

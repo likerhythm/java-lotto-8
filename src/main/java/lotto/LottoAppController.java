@@ -4,16 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
-import lotto.base_numbers.MainNumbersContainer;
-import lotto.draw_numbers.DrawNumbers;
-import lotto.lotto.Lotto;
+import lotto.dto.LottoResult;
+import lotto.model.lotto.LottoRank;
+import lotto.model.numbers.LottoNumber;
+import lotto.model.numbers.MainNumbersContainer;
+import lotto.model.numbers.DrawNumbers;
+import lotto.model.lotto.Lotto;
+import lotto.service.LottoGenerateService;
+import lotto.service.LottoVerifyService;
+import lotto.util.InputParser;
+import lotto.util.RetryExecutor;
+import lotto.util.StringParser;
+import lotto.view.InputView;
+import lotto.view.OutputView;
 
-public class LottoApp {
+public class LottoAppController {
 
     private InputView inputView;
     private OutputView outputView;
 
-    public LottoApp(InputView inputView, OutputView outputView) {
+    public LottoAppController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
         this.outputView = outputView;
     }
@@ -31,7 +41,7 @@ public class LottoApp {
     private List<Lotto> getLottos() {
         String input = inputView.paymentPriceInputGuide();
         int paymentPrice = InputParser.parsePaymentPriceToCount(input);
-        List<Lotto> purchasedLotto = LottoGenerator.generateLottos(paymentPrice);
+        List<Lotto> purchasedLotto = LottoGenerateService.generateLottos(paymentPrice);
         outputView.printPurchasedLotto(purchasedLotto.stream().map(Lotto::toString).toList());
         return purchasedLotto;
     }
@@ -51,8 +61,8 @@ public class LottoApp {
     }
 
     private LottoResult getLottoResult(DrawNumbers drawNumbers, List<Lotto> purchasedLotto) {
-        LottoVerificator lottoVerificator = new LottoVerificator(drawNumbers, purchasedLotto);
-        return lottoVerificator.check();
+        LottoVerifyService lottoVerifyService = new LottoVerifyService(drawNumbers, purchasedLotto);
+        return lottoVerifyService.check();
     }
 
     private List<String> makeWinningResult(LottoResult lottoResult) {

@@ -4,10 +4,11 @@ import static lotto.TestLottoNumber.*;
 import static lotto.TestLottoNumbers.*;
 
 import java.util.ArrayList;
-import lotto.base_numbers.MainNumbersContainer;
-import lotto.draw_numbers.DrawNumbers;
-import lotto.draw_numbers.DrawNumbersBuilder;
-import lotto.lotto.Lotto;
+import lotto.model.numbers.LottoNumber;
+import lotto.model.numbers.MainNumbersContainer;
+import lotto.model.numbers.DrawNumbers;
+import lotto.model.numbers.DrawNumbersBuilder;
+import lotto.model.lotto.Lotto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

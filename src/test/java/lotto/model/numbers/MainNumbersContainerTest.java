@@ -1,4 +1,4 @@
-package lotto.base_numbers;
+package lotto.model.numbers;
 
 import static lotto.TestLottoNumbers.BASIC_NUMBERS;
 import static lotto.TestLottoNumbers.DUPLICATE_NUMBERS;
@@ -8,7 +8,6 @@ import static lotto.TestLottoNumbers.UNSORTED_NUMBERS;
 
 import java.util.ArrayList;
 import java.util.List;
-import lotto.LottoNumber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

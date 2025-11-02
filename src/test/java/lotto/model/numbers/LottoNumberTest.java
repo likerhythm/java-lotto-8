@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model.numbers;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,8 @@
-package lotto;
+package lotto.util;
 
 import java.util.Arrays;
 import java.util.List;
+import lotto.model.numbers.LottoNumber;
 
 public class InputParser {
 

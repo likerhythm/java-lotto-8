@@ -1,8 +1,11 @@
 package lotto;
 
+import lotto.view.InputView;
+import lotto.view.OutputView;
+
 public class Application {
     public static void main(String[] args) {
-        LottoApp lottoApp = new LottoApp(new InputView(), new OutputView());
-        lottoApp.run();
+        LottoAppController lottoAppController = new LottoAppController(new InputView(), new OutputView());
+        lottoAppController.run();
     }
 }
