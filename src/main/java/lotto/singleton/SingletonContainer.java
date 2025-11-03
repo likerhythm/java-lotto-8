@@ -11,10 +11,6 @@ public class SingletonContainer {
 
     private static final Map<Class<?>, Object> instances = new HashMap<>();
 
-    public static boolean contains(Class<?> clazz) {
-        return instances.containsKey(clazz);
-    }
-
     public static <T> T getInstance(Class<T> clazz) {
         synchronized (instances) {
             if (!instances.containsKey(clazz)) {
