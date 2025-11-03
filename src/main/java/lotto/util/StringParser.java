@@ -4,7 +4,7 @@ import lotto.ErrorMessage;
 
 public class StringParser {
 
-    public static int toInteger(String input, String domain) {
+    public static int toInteger(String input) {
         if (input == null) {
             throw new IllegalArgumentException(ErrorMessage.UNKNOWN_ERROR.getMessage());
         }
