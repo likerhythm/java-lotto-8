@@ -6,28 +6,31 @@ import lotto.singleton.Singleton;
 @Singleton
 public class OutputView {
 
+    private static final String AFTER_PURCHASE_LOTTO_PHRASE = "%d개를 구매했습니다.\n%s\n";
+    private static final String LOTTO_RESULT_PHRASE = "당첨 통계\n---\n%s\n총 수익률은 %s%%입니다.";
+
     private OutputView() {}
 
     public String printPurchasedLotto(List<String> purchasedLotto) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(purchasedLotto.size()).append("개를 구매했습니다.\n");
-        for (String str : purchasedLotto) {
-            sb.append(str).append("\n");
-        }
+        String result = String.format(
+                AFTER_PURCHASE_LOTTO_PHRASE,
+                purchasedLotto.size(),
+                String.join("\n", purchasedLotto)
+        );
 
-        System.out.println(sb);
-        return sb.toString();
+        System.out.println(result);
+        return result;
     }
 
     public String printLottoResult(List<String> winningResult, String rateOfReturn) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("당첨 통계\n").append("---\n");
-        for (String str : winningResult) {
-            sb.append(str).append("\n");
-        }
-        sb.append("총 수익률은 ").append(rateOfReturn).append("%입니다.");
-        System.out.println(sb);
-        return sb.toString();
+        String result = String.format(
+                LOTTO_RESULT_PHRASE,
+                String.join("\n", winningResult),
+                rateOfReturn
+        );
+
+        System.out.println(result);
+        return result;
     }
 
     public String printErrorMessage(String errorMessage) {

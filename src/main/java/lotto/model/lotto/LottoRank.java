@@ -54,14 +54,11 @@ public enum LottoRank {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.matchCount).append("개 일치");
-        if (this.bonusMatch != null && this.bonusMatch) {
-            sb.append(", 보너스 볼 일치");
-        }
-        sb.append(" (").append(StringParser.numberFormat(this.reward)).append("원)");
-
-        return sb.toString();
+        String bonusText = (this.bonusMatch != null && this.bonusMatch) ? ", 보너스 볼 일치" : "";
+        return String.format("%d개 일치%s (%s원)",
+                this.matchCount,
+                bonusText,
+                StringParser.numberFormat(this.reward));
     }
 
     private boolean check(int matchCount, boolean bonusMatch) {
