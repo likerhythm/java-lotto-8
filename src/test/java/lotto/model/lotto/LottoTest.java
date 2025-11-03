@@ -1,4 +1,4 @@
-package lotto;
+package lotto.model.lotto;
 
 import static lotto.TestLottoNumber.*;
 import static lotto.TestLottoNumbers.*;
@@ -8,7 +8,6 @@ import lotto.model.numbers.LottoNumber;
 import lotto.model.numbers.MainNumbersContainer;
 import lotto.model.numbers.DrawNumbers;
 import lotto.model.numbers.DrawNumbersBuilder;
-import lotto.model.lotto.Lotto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,6 +17,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class LottoTest {
+
     @Test
     void 로또_번호의_개수가_6개가_넘어가면_예외가_발생한다() {
         List<LottoNumber> numbers = new ArrayList<>(MANY_NUMBERS);
@@ -34,7 +34,7 @@ class LottoTest {
     }
 
     @Test
-    void 로또_번호에서_당첨_번호가_정상적으로_카운트됩니다() {
+    void 로또_번호에서_당첨_번호가_정상적으로_카운트된다() {
         MainNumbersContainer winningNumbers = new MainNumbersContainer(new ArrayList<>(BASIC_NUMBERS));
         DrawNumbers drawNumbers = DrawNumbersBuilder.builder()
                 .winningNumbers(winningNumbers)
@@ -45,7 +45,7 @@ class LottoTest {
     }
 
     @Test
-    void 로또_번호에서_보너스_번호가_정상적으로_인식됩니다() {
+    void 로또_번호에서_보너스_번호가_정상적으로_인식된다() {
         MainNumbersContainer winningNumbers = new MainNumbersContainer(new ArrayList<>(BASIC_NUMBERS));
         DrawNumbers drawNumbers = DrawNumbersBuilder.builder()
                 .winningNumbers(winningNumbers)
