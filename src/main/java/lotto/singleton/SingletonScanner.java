@@ -21,9 +21,7 @@ public class SingletonScanner {
                     String className = basePackage + "." + file.getName().replace(".class", "");
                     Class<?> clazz = Class.forName(className);
 
-                    // 👇 @Singleton 어노테이션이 붙은 클래스만 등록
                     if (clazz.isAnnotationPresent(Singleton.class) && !SingletonContainer.contains(clazz)) {
-//                        Object instance = clazz.getDeclaredConstructor().newInstance();
                         SingletonContainer.getInstance(clazz);
                         System.out.println("[등록 완료] " + clazz.getName());
                     }
