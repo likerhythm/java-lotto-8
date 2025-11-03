@@ -4,10 +4,16 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
+import lotto.ErrorMessage;
+import lotto.exception.SingletonException;
 
 public class SingletonContainer {
 
     private static final Map<Class<?>, Object> instances = new HashMap<>();
+
+    public static boolean contains(Class<?> clazz) {
+        return instances.containsKey(clazz);
+    }
 
     public static <T> T getInstance(Class<T> clazz) {
         synchronized (instances) {
@@ -15,7 +21,7 @@ public class SingletonContainer {
                 try {
                     return createInstance(clazz);
                 } catch (Exception e) {
-                    throw new RuntimeException("[ERROR] 인스턴스 생성에 실패했습니다");
+                    throw new SingletonException(ErrorMessage.FAIL_TO_REGISTER_SINGLETON_INSTANCE.getMessage());
                 }
             }
             return clazz.cast(instances.get(clazz));
@@ -56,9 +62,5 @@ public class SingletonContainer {
             parameters[i] = parameter;
         }
         return parameters;
-    }
-
-    public static boolean contains(Class<?> clazz) {
-        return instances.containsKey(clazz);
     }
 }

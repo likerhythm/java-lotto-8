@@ -15,6 +15,8 @@ public enum ErrorMessage {
     EXCEED_MAX_RETRY_ATTEMPT("최대 재시도 횟수를 초과했습니다. 처음부터 다시 시도해주세요."),
     INVALID_INTEGER("정수를 입력해주세요."),
     UNKNOWN_ERROR("알 수 없는 오류가 발생했습니다"),
+
+    FAIL_TO_REGISTER_SINGLETON_INSTANCE("싱글톤 인스턴스 생성에 실패했습니다")
     ;
 
     private static final String PREFIX = "[ERROR] ";
